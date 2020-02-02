@@ -8,4 +8,5 @@ def randomApi():
 
 def easy():
     random= randomApi()
-    return random
+    t = 0
+    return random, t
