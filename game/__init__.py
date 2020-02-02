@@ -36,12 +36,10 @@ def welcomeMessage():
 def difficulty(choice):
     if choice == 'easy':
         value= easy()
-        print(value)
         playing(value)
 
     if choice == 'medium':
         value= medium()
-        print(value)
         playing(value)
 
     if choice == 'hard':
@@ -49,34 +47,23 @@ def difficulty(choice):
         playing(value)
     
 
-def playing(numb):
-    num = numb[0]
+def playing(number):
+    num = int(number[0])
+    print(num)
     guesses=[]
     count = 1
-    timeout = 3
+    
     print('Time to guess a four digit number.You have 10 attempts: ')
     while len(guesses)<1:
         print('Your guesses: '+ str(guesses))
-        # if timeout > 0:
-        #     t = Timer(timeout, print, ['Sorry, times up. Press enter'])
-        #     t.start()
-        #     prompt = "You have %d seconds to choose the correct answer...\n" % timeout
-        #     guess = input(prompt)
-        #     guesses.append(guess)
-        #     if count>=3:
-        #         count -=2
-        #     else:
-        #         count-=1
-
-        # elif timeout==0:
-        guess=input()
-        guesses.append(int(guess))
-
+       
+        guess=int(input('Guess number: '))
+        guesses.append(guess)
         if guess == num:
             os.system('clear')
             print(pyfiglet.figlet_format("WINNER!"))
             print('\n')
-            print(num+ ' is the correct answer! You have won!')
+            print(str(num)+ ' is the correct answer! You have won!')
             sound('soundEffects/yay.wav')
             return
         else:
@@ -84,13 +71,13 @@ def playing(numb):
             count-= 1
             print('You have '+ str(count) +" guess(es) left.")
     print(guesses)
-    os.system('clear')
+    # os.system('clear')
     print("Sorry, you are out of guesses. Goodbye.")
     sleep(1)
     # MP3
 
-    print(pyfiglet.figlet_format("LOSER!"))
-    sound('soundEffects/womp.wav')
+    # print(pyfiglet.figlet_format("LOSER!"))
+    # sound('soundEffects/womp.wav')
     return
 
 def sound(n):
