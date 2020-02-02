@@ -8,4 +8,8 @@ def randomApi():
 
 def medium():
     random= randomApi()
-    return random
+    attempts = 5
+    strLength ='five'
+    t = 10
+    return [random, t, strLength, attempts]
+

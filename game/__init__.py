@@ -53,7 +53,7 @@ def playing(number):
     guesses=[]
     count = 1
     
-    print('Time to guess a four digit number.You have 10 attempts: ')
+    print('Time to guess a %s digit number.You have %s attempts.' % (number[2],str(number[3])))
     while len(guesses)<1:
         print('Your guesses: '+ str(guesses))
        
@@ -71,14 +71,21 @@ def playing(number):
             count-= 1
             print('You have '+ str(count) +" guess(es) left.")
     print(guesses)
-    # os.system('clear')
+    os.system('clear')
     print("Sorry, you are out of guesses. Goodbye.")
     sleep(1)
     # MP3
 
-    # print(pyfiglet.figlet_format("LOSER!"))
-    # sound('soundEffects/womp.wav')
-    return
+    print(pyfiglet.figlet_format("LOSER!"))
+    sound('soundEffects/womp.wav')
+    tryAgain = input("Would you like to play again? Y or N? ")
+    playAgain(tryAgain)
+
+def playAgain(tryAgain):
+    if tryAgain == "Y" or tryAgain == 'y' or tryAgain == 'yes':
+        welcomeMessage()
+    else:
+        return
 
 def sound(n):
     pygame.mixer.init()

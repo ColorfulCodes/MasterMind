@@ -8,5 +8,7 @@ def randomApi():
 
 def easy():
     random= randomApi()
+    attempts = 10
+    strLength ='four'
     t = 0
-    return random, t
+    return [random, t, strLength, attempts]
