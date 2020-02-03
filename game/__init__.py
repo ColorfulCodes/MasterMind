@@ -24,7 +24,8 @@ def welcomeMessage():
     if start=="y" or start=="Y" or start=="yes":
         given = input("Do you want to play easy, medium or hard level? ")
         os.system("clear")
-        difficulty(given)
+        diff = difficulty(given)
+        playing(diff)
         
     elif start=="n" or start=="N" or start=="no":
         print('Alright, Goodbye now')
@@ -34,27 +35,24 @@ def welcomeMessage():
         return
 
 def difficulty(choice):
-    if choice == 'easy':
-        value= easy()
-        playing(value)
 
-    if choice == 'medium':
-        value= medium()
-        playing(value)
-
-    if choice == 'hard':
-        value= hard()
-        playing(value)
+    return {
+        'easy': easy,
+        'medium': medium,
+        'hard': hard
+    #returns function
+    }[choice]()
     
 
 def playing(number):
     num = int(number[0])
     print(num)
     guesses=[]
-    count = 1
+    count = 3
     
     print('Time to guess a %s digit number.You have %s attempts.' % (number[2],str(number[3])))
-    while len(guesses)<1:
+    # while len(guesses)< number[2]:
+    while len(guesses)< count:
         print('Your guesses: '+ str(guesses))
        
         guess=int(input('Guess number: '))
@@ -95,12 +93,5 @@ def sound(n):
     pygame.time.wait(int(sound1.get_length() * 1000))
     return
 
-
-
-# #EXTRA
-# def hints():
-#     return
-
-    
 
 welcomeMessage()
