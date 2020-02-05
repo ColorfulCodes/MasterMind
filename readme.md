@@ -2,7 +2,9 @@
 
 ## To begin cd into the game folder and run python3 **init**.py
 
-### Make sure to do a `pip3 install pygame`
+#### Then select 'Y' or 'yes' to begin playing. After type, 'easy', 'medium' or 'hard' to select your difficulty level
+
+### Make sure to do a `pip3 install pygame` and `pip3 install pyfiglet`
 
 ### Issues found when attempting to write tests, there is no out put within each function as they are calling other functions
 
